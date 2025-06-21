@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CoffeeProvider extends ChangeNotifier {
+class CoffeeViewModel extends ChangeNotifier {
   String _selectedSize = 'M';
   bool _isFavorite = false;
 

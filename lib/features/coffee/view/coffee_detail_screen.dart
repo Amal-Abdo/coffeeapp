@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../../core/model/coffee_model.dart';
 import '../viewmodel/coffee_view_model.dart';
+import 'order_screen.dart';
 
 class CoffeeDetailScreen extends HookWidget {
   final CoffeeModel coffee;
@@ -12,7 +13,7 @@ class CoffeeDetailScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final coffeeProvider = useContext().watch<CoffeeProvider>();
+    final coffeeProvider = useContext().watch<CoffeeViewModel>();
     final animationController = useAnimationController(duration: const Duration(milliseconds: 600));
     final slideAnimation = Tween<Offset>(begin: const Offset(0, 0.1), end: Offset.zero).animate(animationController);
     final opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(animationController);
@@ -49,15 +50,12 @@ class CoffeeDetailScreen extends HookWidget {
                   ),
                 ),
 
-                // Coffee Image
                 ClipRRect(
                   borderRadius: BorderRadius.circular(12),
                   child: Image.asset(coffee.image, height: 220, width: double.infinity, fit: BoxFit.cover),
                 ),
 
                 const SizedBox(height: 12),
-
-                // Title and Icons
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Row(
@@ -102,8 +100,6 @@ class CoffeeDetailScreen extends HookWidget {
                 ),
 
                 const SizedBox(height: 12),
-
-                // Sizes
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Row(
@@ -128,8 +124,6 @@ class CoffeeDetailScreen extends HookWidget {
                 ),
 
                 const Spacer(),
-
-                // Price & Buy Button
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Row(
@@ -146,10 +140,10 @@ class CoffeeDetailScreen extends HookWidget {
                             onTapUp: (_) => tapped.value = false,
                             onTapCancel: () => tapped.value = false,
                             onTap: () {
-                              // Handle Buy
                               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                                 content: Text("Added to cart"),
                               ));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => OrderScreen(),));
                             },
                             child: AnimatedScale(
                               scale: tapped.value ? 0.95 : 1.0,

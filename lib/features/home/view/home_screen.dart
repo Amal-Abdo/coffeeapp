@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:provider/provider.dart';
-import '../../coffee_details/view/coffee_detail_screen.dart';
+import '../../coffee/view/coffee_detail_screen.dart';
 import '../viewmodel/home_viewmodel.dart';
 import '../widget/coffee_item_card.dart';
 import '../widget/promo_banner.dart';

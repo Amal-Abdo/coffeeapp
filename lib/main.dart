@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:provider/provider.dart';
 import 'core/theme/app_theme.dart';
-import 'features/coffee_details/viewmodel/coffee_view_model.dart';
+import 'features/coffee/viewmodel/coffee_view_model.dart';
+import 'features/coffee/viewmodel/order_viewmodel.dart';
+import 'features/coffee/viewmodel/tracking_viewmodel.dart';
 import 'features/home/viewmodel/home_viewmodel.dart';
 import 'features/onboarding/view/onboarding_screen.dart';
 import 'features/onboarding/viewmodel/onboarding_viewmodel.dart';
@@ -20,7 +21,9 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => OnboardingViewModel()),
         ChangeNotifierProvider(create: (_) => HomeViewModel()),
-        ChangeNotifierProvider(create: (_) => CoffeeProvider()),
+        ChangeNotifierProvider(create: (_) => CoffeeViewModel()),
+        ChangeNotifierProvider(create: (_) => OrderViewModel()),
+        ChangeNotifierProvider(create: (_) => TrackingViewModel()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
