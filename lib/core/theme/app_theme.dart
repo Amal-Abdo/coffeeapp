@@ -6,7 +6,6 @@ class AppTheme {
       brightness: Brightness.dark,
       primaryColor: const Color(0xFFC67C4E),
       scaffoldBackgroundColor: Colors.black,
-      fontFamily: 'Roboto',
       textTheme: const TextTheme(
         headlineLarge: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white),
         bodyMedium: TextStyle(fontSize: 16, color: Colors.white70),
